@@ -1,0 +1,131 @@
+<div class="flex items-center justify-center h-32 p-14">
+  <div class="flex flex-col text-center">
+    <div class="space-x-2">
+      <button class="btn btn-primary btn-circle text-white" (click)="decreaseWeek()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+        </svg>
+      </button>
+      <p class="badge badge-primary mx-auto mt-10 p-6 text-white mb-4 text-3xl">Săptămâna {{ currentDate.weekNumber }}</p>
+      <button class="btn btn-primary btn-circle text-white" (click)="increaseWeek()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+        </svg>
+      </button>
+    </div>
+    <p class="badge badge-secondary mx-auto m-6 p-4 text-xl text-white">
+      {{ currentDate.mondayDate | date:'dd MMMM y':'':'ro' }} - {{ currentDate.fridayDate | date:'dd MMMM y':'':'ro' }}
+    </p>
+  </div>
+</div>
+
+<form [formGroup]="menuForm" class="m-6">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Monday -->
+      <label class="form-control" formGroupName="monday">
+        <div class="label">
+          <span class="label-text text-xl">Luni</span>
+        </div>
+        <textarea formControlName="foodMenu" class="textarea textarea-bordered h-32 text-base" rows="5" placeholder="Meniu luni"></textarea>
+        <label class="cursor-pointer label">
+          <span class="label-text text-lg">Închis</span>
+          <input type="checkbox" formControlName="closed" class="toggle toggle-error" />
+        </label>
+      </label>
+
+    <!-- Tuesday -->
+    <label class="form-control" formGroupName="tuesday">
+      <div class="label">
+        <span class="label-text text-xl">Marți</span>
+      </div>
+      <textarea formControlName="foodMenu" class="textarea textarea-bordered h-32 text-base" rows="5" placeholder="Meniu marți"></textarea>
+      <label class="cursor-pointer label">
+        <span class="label-text text-lg">Închis</span>
+        <input type="checkbox" formControlName="closed" class="toggle toggle-error" />
+      </label>
+    </label>
+
+    <!-- Wednesday -->
+    <label class="form-control" formGroupName="wednesday">
+      <div class="label">
+        <span class="label-text text-xl">Miercuri</span>
+      </div>
+      <textarea formControlName="foodMenu" class="textarea textarea-bordered h-32 text-base" rows="5" placeholder="Meniu miercuri"></textarea>
+      <label class="cursor-pointer label">
+        <span class="label-text text-lg">Închis</span>
+        <input type="checkbox" formControlName="closed" class="toggle toggle-error" />
+      </label>
+    </label>
+
+    <!-- Thursday -->
+    <label class="form-control" formGroupName="thursday">
+      <div class="label">
+        <span class="label-text text-xl">Joi</span>
+      </div>
+      <textarea formControlName="foodMenu" class="textarea textarea-bordered h-32 text-base" rows="5" placeholder="Meniu joi" ></textarea>
+      <label class="cursor-pointer label">
+        <span class="label-text text-lg">Închis</span>
+        <input type="checkbox" formControlName="closed" class="toggle toggle-error" />
+      </label>
+    </label>
+
+    <!-- Friday -->
+    <label class="form-control" formGroupName="friday">
+      <div class="label">
+        <span class="label-text text-xl">Vineri</span>
+      </div>
+      <textarea formControlName="foodMenu" class="textarea textarea-bordered h-32 text-base" rows="5" placeholder="Meniu vineri"></textarea>
+      <label class="cursor-pointer label">
+        <span class="label-text text-lg">Închis</span>
+        <input type="checkbox" formControlName="closed" class="toggle toggle-error" />
+      </label>
+    </label>
+  </div>
+
+  <div class="flex items-center justify-center mt-6">
+    <button class="btn btn-primary text-white text-lg" (click)="updateMenuForWeek()">
+      Actualizează meniul
+    </button>
+  </div>
+</form>
+
+<div class="dropdown mb-72">
+  <div tabindex="0" role="button" class="btn m-1">
+    Temă
+    <svg width="12px" height="12px" class="h-2 w-2 fill-current opacity-60 inline-block" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048"><path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path></svg>
+  </div>
+  <ul tabindex="0" class="dropdown-content z-[1] p-2 shadow-2xl bg-base-300 rounded-box w-52">
+    <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Light" value="light" [(ngModel)]="selectedTheme" (change)="updateTheme()"/></li>
+    <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Dark" value="dark" [(ngModel)]="selectedTheme" (change)="updateTheme()"/></li>
+    <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Cupcake" value="cupcake" [(ngModel)]="selectedTheme" (change)="updateTheme()"/></li>
+    <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Bumblebee" value="bumblebee" [(ngModel)]="selectedTheme" (change)="updateTheme()"/></li>
+    <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Emerald" value="emerald" [(ngModel)]="selectedTheme" (change)="updateTheme()"/></li>
+    <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Corporate" value="corporate" [(ngModel)]="selectedTheme" (change)="updateTheme()"/></li>
+    <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Synthwave" value="synthwave" [(ngModel)]="selectedTheme" (change)="updateTheme()"/></li>
+    <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Retro" value="retro" [(ngModel)]="selectedTheme" (change)="updateTheme()"/></li>
+    <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Cyberpunk" value="cyberpunk" [(ngModel)]="selectedTheme" (change)="updateTheme()"/></li>
+    <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Valentine" value="valentine" [(ngModel)]="selectedTheme" (change)="updateTheme()"/></li>
+    <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Halloween" value="halloween" [(ngModel)]="selectedTheme" (change)="updateTheme()"/></li>
+    <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Garden" value="garden" [(ngModel)]="selectedTheme" (change)="updateTheme()"/></li>
+    <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Forest" value="forest" [(ngModel)]="selectedTheme" (change)="updateTheme()"/></li>
+    <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Aqua" value="aqua" [(ngModel)]="selectedTheme" (change)="updateTheme()"/></li>
+    <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Lofi" value="lofi" [(ngModel)]="selectedTheme" (change)="updateTheme()"/></li>
+    <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Pastel" value="pastel" [(ngModel)]="selectedTheme" (change)="updateTheme()"/></li>
+    <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Fantasy" value="fantasy" [(ngModel)]="selectedTheme" (change)="updateTheme()"/></li>
+    <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Wireframe" value="wireframe" [(ngModel)]="selectedTheme" (change)="updateTheme()"/></li>
+    <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Black" value="black" [(ngModel)]="selectedTheme" (change)="updateTheme()"/></li>
+    <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Luxury" value="luxury" [(ngModel)]="selectedTheme" (change)="updateTheme()"/></li>
+    <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Dracula" value="dracula" [(ngModel)]="selectedTheme" (change)="updateTheme()"/></li>
+    <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Cmyk" value="cmyk" [(ngModel)]="selectedTheme" (change)="updateTheme()"/></li>
+    <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Autumn" value="autumn" [(ngModel)]="selectedTheme" (change)="updateTheme()"/></li>
+    <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Business" value="business" [(ngModel)]="selectedTheme" (change)="updateTheme()"/></li>
+    <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Acid" value="acid" [(ngModel)]="selectedTheme" (change)="updateTheme()"/></li>
+    <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Lemonade" value="lemonade" [(ngModel)]="selectedTheme" (change)="updateTheme()"/></li>
+    <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Night" value="night" [(ngModel)]="selectedTheme" (change)="updateTheme()"/></li>
+    <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Coffee" value="coffee" [(ngModel)]="selectedTheme" (change)="updateTheme()"/></li>
+    <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Winter" value="winter" [(ngModel)]="selectedTheme" (change)="updateTheme()"/></li>
+    <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Dim" value="dim" [(ngModel)]="selectedTheme" (change)="updateTheme()"/></li>
+    <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Nord" value="nord" [(ngModel)]="selectedTheme" (change)="updateTheme()"/></li>
+    <li><input type="radio" name="theme-dropdown" class="theme-controller btn btn-sm btn-block btn-ghost justify-start" aria-label="Sunset" value="sunset" [(ngModel)]="selectedTheme" (change)="updateTheme()"/></li>
+  </ul>
+</div>

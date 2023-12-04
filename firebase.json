@@ -1,0 +1,13 @@
+{
+  "hosting": [
+    {
+      "target": "pandoras-food",
+      "public": "dist/pandoras-food",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ]
+    }
+  ]
+}

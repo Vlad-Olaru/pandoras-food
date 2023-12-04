@@ -1,0 +1,95 @@
+<div class="flex flex-col bg-200">
+  <div class="hero h-64">
+    <div class="hero-content text-center">
+      <div class="max-w-md">
+        <h1 class="text-5xl font-bold">Pandora's Food</h1>
+        <p class="py-6">Mâncare proaspătă, gătită cu pasiune</p>
+        <p class="badge badge-primary mx-auto p-6 text-white text-xl">Săptămâna {{ currentDate.weekNumber }}</p><br>
+        <p class="badge badge-secondary mx-auto m-6 p-4 text-xl text-white">
+          {{ currentDate.mondayDate | date:'dd MMMM y':'':'ro' }} - {{ currentDate.fridayDate | date:'dd MMMM y':'':'ro' }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 m-10">
+    <div class="card shadow-xl text-center">
+      <div class="card-body box">
+        <h2 class="card-title mx-auto mb-6">Luni</h2>
+        <ng-container *ngIf="menu.monday.closed">
+          <div class="ribbon ribbon-top-right">
+            <span class="bg-error">închis</span>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="!menu.monday.closed">{{ menu.monday.foodMenu }}</ng-container>
+      </div>
+    </div>
+    <div class="card shadow-xl text-center">
+      <div class="card-body">
+        <h2 class="card-title mx-auto mb-6">Marți</h2>
+        <ng-container *ngIf="menu.tuesday.closed">
+          <div class="ribbon ribbon-top-right">
+            <span class="bg-error">închis</span>
+          </div>
+        <p>Din păcate, astăzi este închis</p>
+        </ng-container>
+        <ng-container *ngIf="!menu.tuesday.closed">{{ menu.tuesday.foodMenu }}</ng-container>
+      </div>
+    </div>
+    <div class="card shadow-xl text-center">
+      <div class="card-body">
+        <h2 class="card-title mx-auto mb-6">Miercuri</h2>
+        <ng-container *ngIf="menu.wednesday.closed">
+          <div class="ribbon ribbon-top-right">
+            <span class="bg-error">închis</span>
+          </div>
+          <p>Din păcate, astăzi este închis</p>
+        </ng-container>
+        <ng-container *ngIf="!menu.wednesday.closed">{{ menu.wednesday.foodMenu }}</ng-container>
+      </div>
+    </div>
+    <div class="card shadow-xl text-center">
+      <div class="card-body">
+        <h2 class="card-title mx-auto mb-6">Joi</h2>
+        <ng-container *ngIf="menu.thursday.closed">
+          <div class="ribbon ribbon-top-right">
+            <span class="bg-error">închis</span>
+          </div>
+          <p>Din păcate, astăzi este închis</p>
+        </ng-container>
+        <ng-container *ngIf="!menu.thursday.closed">{{ menu.thursday.foodMenu }}</ng-container>
+      </div>
+    </div>
+    <div class="card shadow-xl text-center">
+      <div class="card-body box">
+        <h2 class="card-title mx-auto mb-6">Vineri</h2>
+        <ng-container *ngIf="menu.friday.closed">
+          <div class="ribbon ribbon-top-right text-white">
+            <span class="bg-error">închis</span>
+          </div>
+          <p>Din păcate, astăzi este închis</p>
+        </ng-container>
+        <ng-container *ngIf="!menu.friday.closed">{{ menu.friday.foodMenu }}</ng-container>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col justify-center items-center">
+    <div tabindex="0" class="collapse collapse-arrow w-1/2">
+      <div class="collapse-title badge badge-secondary mx-auto m-6 text-lg text-white">
+        De asemenea, la cerere, mai putem găti
+      </div>
+      <div class="collapse-content">
+        <ul>
+          <li>Salată Pandora</li>
+          <li>Piept de pui + </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col justify-center items-center">
+    <h1 class="badge badge-info mx-auto m-6 p-6 text-2xl text-white">Unde ne puteți găsi</h1>
+    <div class="wow fadeInUp iframe-container" data-wow-delay=".2s">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d534.5887525656353!2d26.11320364820582!3d44.46831359717836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1f97d959284ef%3A0xc90c1881538ea1ee!2sPandora%E2%80%99s%20Food%20Autoservire!5e0!3m2!1sro!2sro!4v1701678044882!5m2!1sro!2sro"
+              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</div>

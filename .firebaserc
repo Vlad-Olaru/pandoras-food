@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "pandoras-food": {
+      "hosting": {
+        "pandoras-food": [
+          "pandoras-food"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "pandoras-food"
+  }
+}
