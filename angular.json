@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "pandoras-food:build:production"
+              "buildTarget": "pandoras-food:build:production"
             },
             "development": {
-              "browserTarget": "pandoras-food:build:development"
+              "buildTarget": "pandoras-food:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "pandoras-food:build"
+            "buildTarget": "pandoras-food:build"
           }
         },
         "test": {
