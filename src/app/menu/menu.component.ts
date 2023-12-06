@@ -19,7 +19,7 @@ export class MenuComponent implements OnInit{
 
   ngOnInit(): void {
     this.menuService.getMenuForCurrentWeek().subscribe(
-    // @ts-ignore
+      // @ts-ignore
         thisWeekMenu => this.menu = thisWeekMenu
     );
   }

@@ -1,27 +1,26 @@
-<div class="flex items-center justify-center h-32 p-14">
-  <div class="flex flex-col text-center">
-    <div class="space-x-2">
-      <button class="btn btn-primary btn-circle text-white" (click)="decreaseWeek()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+<div class="flex flex-col items-center justify-center p-4 mt-6">
+  <div class="flex flex-col text-center space-y-4">
+    <div class="flex items-center justify-center space-x-2">
+      <button class="btn btn-primary btn-circle text-white p-2" (click)="decreaseWeek()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
         </svg>
       </button>
-      <p class="badge badge-primary mx-auto mt-10 p-6 text-white mb-4 text-3xl">Săptămâna {{ currentDate.weekNumber }}</p>
-      <button class="btn btn-primary btn-circle text-white" (click)="increaseWeek()">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+      <p class="badge badge-primary mx-auto p-8 text-white text-xl">Săptămâna {{ currentDate.weekNumber }}</p>
+      <button class="btn btn-primary btn-circle text-white p-2" (click)="increaseWeek()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
         </svg>
       </button>
     </div>
-    <p class="badge badge-secondary mx-auto m-6 p-4 text-xl text-white">
+    <p class="badge badge-secondary mx-auto p-8 text-lg text-white">
       {{ currentDate.mondayDate | date:'dd MMMM y':'':'ro' }} - {{ currentDate.fridayDate | date:'dd MMMM y':'':'ro' }}
     </p>
   </div>
 </div>
 
-<form [formGroup]="menuForm" class="m-6">
+<form [formGroup]="menuForm" class="m-8">
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    <!-- Monday -->
       <label class="form-control" formGroupName="monday">
         <div class="label">
           <span class="label-text text-xl">Luni</span>
@@ -31,9 +30,12 @@
           <span class="label-text text-lg">Închis</span>
           <input type="checkbox" formControlName="closed" class="toggle toggle-error" />
         </label>
+        <label class="cursor-pointer label">
+          <span class="label-text text-lg">Am vândut deja toate meniurile</span>
+          <input type="checkbox" formControlName="foodFinished" class="toggle toggle-error" />
+        </label>
       </label>
 
-    <!-- Tuesday -->
     <label class="form-control" formGroupName="tuesday">
       <div class="label">
         <span class="label-text text-xl">Marți</span>
@@ -43,9 +45,12 @@
         <span class="label-text text-lg">Închis</span>
         <input type="checkbox" formControlName="closed" class="toggle toggle-error" />
       </label>
+      <label class="cursor-pointer label">
+        <span class="label-text text-lg">Am vândut deja toate meniurile</span>
+        <input type="checkbox" formControlName="foodFinished" class="toggle toggle-error" />
+      </label>
     </label>
 
-    <!-- Wednesday -->
     <label class="form-control" formGroupName="wednesday">
       <div class="label">
         <span class="label-text text-xl">Miercuri</span>
@@ -55,9 +60,12 @@
         <span class="label-text text-lg">Închis</span>
         <input type="checkbox" formControlName="closed" class="toggle toggle-error" />
       </label>
+      <label class="cursor-pointer label">
+        <span class="label-text text-lg">Am vândut deja toate meniurile</span>
+        <input type="checkbox" formControlName="foodFinished" class="toggle toggle-error" />
+      </label>
     </label>
 
-    <!-- Thursday -->
     <label class="form-control" formGroupName="thursday">
       <div class="label">
         <span class="label-text text-xl">Joi</span>
@@ -67,9 +75,12 @@
         <span class="label-text text-lg">Închis</span>
         <input type="checkbox" formControlName="closed" class="toggle toggle-error" />
       </label>
+      <label class="cursor-pointer label">
+        <span class="label-text text-lg">Am vândut deja toate meniurile</span>
+        <input type="checkbox" formControlName="foodFinished" class="toggle toggle-error" />
+      </label>
     </label>
 
-    <!-- Friday -->
     <label class="form-control" formGroupName="friday">
       <div class="label">
         <span class="label-text text-xl">Vineri</span>
@@ -78,6 +89,10 @@
       <label class="cursor-pointer label">
         <span class="label-text text-lg">Închis</span>
         <input type="checkbox" formControlName="closed" class="toggle toggle-error" />
+      </label>
+      <label class="cursor-pointer label">
+        <span class="label-text text-lg">Am vândut deja toate meniurile</span>
+        <input type="checkbox" formControlName="foodFinished" class="toggle toggle-error" />
       </label>
     </label>
   </div>

@@ -9,4 +9,5 @@ export interface Menu {
 export interface DayWithOptions {
   foodMenu: string;
   closed: boolean;
+  foodFinished: boolean
 }

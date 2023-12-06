@@ -14,23 +14,28 @@ export class AdminComponent {
   menuForm = new FormGroup({
     monday: new FormGroup({
       foodMenu: new FormControl(''),
-      closed: new FormControl(false)
+      closed: new FormControl(false),
+      foodFinished: new FormControl(false)
     }),
     tuesday: new FormGroup({
       foodMenu: new FormControl(''),
-      closed: new FormControl(false)
+      closed: new FormControl(false),
+      foodFinished: new FormControl(false)
     }),
     wednesday: new FormGroup({
       foodMenu: new FormControl(''),
-      closed: new FormControl(false)
+      closed: new FormControl(false),
+      foodFinished: new FormControl(false)
     }),
     thursday: new FormGroup({
       foodMenu: new FormControl(''),
-      closed: new FormControl(false)
+      closed: new FormControl(false),
+      foodFinished: new FormControl(false),
     }),
     friday: new FormGroup({
       foodMenu: new FormControl(''),
-      closed: new FormControl(false)
+      closed: new FormControl(false),
+      foodFinished: new FormControl(false)
     })
   });
   selectedTheme: string = 'cmyk';
