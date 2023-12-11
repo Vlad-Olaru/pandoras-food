@@ -16,6 +16,7 @@ import { FIREBASE_OPTIONS } from "@angular/fire/compat";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ToastrModule } from "ngx-toastr";
 
 registerLocaleData(localeRo, 'ro');
 
@@ -33,6 +34,7 @@ registerLocaleData(localeRo, 'ro');
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
+    ToastrModule.forRoot(),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     // provideAnalytics(() => getAnalytics()),
     provideAuth(() => getAuth()),

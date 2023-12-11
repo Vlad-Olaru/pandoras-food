@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { MenuService } from "../shared/menu.service";
 import { DayWithOptions, Menu } from "../shared/menu";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: 'app-admin',
@@ -40,7 +41,8 @@ export class AdminComponent {
   });
   selectedTheme: string = 'cmyk';
 
-  constructor(private menuService: MenuService) {
+  constructor(private menuService: MenuService,
+              private toastr: ToastrService) {
     this.loadDataForSelectedWeek();
   }
 
@@ -54,6 +56,7 @@ export class AdminComponent {
     };
 
     this.menuService.createMenuForCurrentWeek(menu);
+    this.toastr.success('Meniu actualizat cu succes!');
   }
 
   updateTheme() {
