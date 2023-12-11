@@ -39,7 +39,6 @@ export class AdminComponent {
       foodFinished: new FormControl(false)
     })
   });
-  selectedTheme: string = 'cmyk';
 
   constructor(private menuService: MenuService,
               private toastr: ToastrService) {
@@ -57,10 +56,6 @@ export class AdminComponent {
 
     this.menuService.createMenuForCurrentWeek(menu);
     this.toastr.success('Meniu actualizat cu succes!');
-  }
-
-  updateTheme() {
-    document.documentElement.setAttribute('data-theme', this.selectedTheme);
   }
 
   decreaseWeek() {

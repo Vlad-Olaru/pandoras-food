@@ -38,7 +38,7 @@ export class MenuService {
 
     // Get the date of the Friday
     const fridayDate = new Date(this.currentDate);
-    fridayDate.setUTCDate(this.currentDate.getUTCDate() + 2);
+    fridayDate.setUTCDate(this.currentDate.getUTCDate() + 1);
 
     // Get first day of year
     const yearStart = new Date(Date.UTC(this.currentDate.getUTCFullYear(), 0, 1));

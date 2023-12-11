@@ -1,19 +1,24 @@
-<div class="flex flex-col bg-200">
-  <div class="hero h-48">
+<div class="flex flex-col bg-gray-300">
+  <div class="hero h-72">
     <div class="hero-content text-center">
       <div class="max-w-md">
-        <h1 class="text-5xl font-bold">Pandora's Food</h1>
-        <p class="py-6 text-xl">Mâncare proaspătă, gătită cu pasiune</p>
+        <div class="flex items-center justify-center">
+          <object type="image/svg+xml" data="assets/logo.svg" class="h-72 w-108 mr-2"></object>
+          <div class="flex flex-col">
+            <h1 class="text-8xl font-sans italic text-primary text-center primary">Pandora's</h1>
+            <h1 class="text-8xl font-serif italic text-secondary text-center">Food</h1>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="flex flex-col text-center">
+  <div class="flex flex-wrap justify-between text-center">
     <p class="badge badge-primary mb-8 mx-auto text-xl p-12 text-white md:w-1/2 lg:w-1/3">
       Meniul zilei: supă + fel principal, pâine  <br>
       25 lei
     </p>
     <p class="badge badge-secondary mx-auto p-12 mb-8 text-xl text-white md:w-1/2 lg:w-1/3">
-      Meniu săptâmâna<br>
+      Meniu săptămâna<br>
       {{ currentDate.mondayDate | date:'dd MMMM y':'':'ro' }} - {{ currentDate.fridayDate | date:'dd MMMM y':'':'ro' }}
     </p>
   </div>
@@ -113,7 +118,7 @@
       În fiecare zi
     </p>
     <div class="overflow-x-auto">
-      <table class="table table-zebra">
+      <table class="table table-zebra text-xl">
         <thead>
         <tr>
           <th>Preparat</th>
@@ -154,7 +159,7 @@
     </div>
   </div>
   <div class="flex flex-col justify-center items-center max-w-screen-md mx-auto overflow-x-hidden">
-    <h1 class="badge badge-info mx-auto m-6 p-6 text-xl text-white">Unde ne puteți găsi</h1>
+    <h1 class="badge badge-accent mx-auto m-6 p-6 text-xl text-white">Unde ne puteți găsi</h1>
     <div class="wow fadeInUp iframe-container" data-wow-delay=".2s">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d534.5887525656353!2d26.11320364820582!3d44.46831359717836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1f97d959284ef%3A0xc90c1881538ea1ee!2sPandora%E2%80%99s%20Food%20Autoservire!5e0!3m2!1sro!2sro!4v1701678044882!5m2!1sro!2sro"
               height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
