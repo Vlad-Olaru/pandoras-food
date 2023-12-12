@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuService } from "../shared/menu.service";
 import { Menu } from "../shared/menu";
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-menu',
@@ -12,15 +13,19 @@ export class MenuComponent implements OnInit{
   // @ts-ignore
   menu: Menu = {};
 
-  constructor(private menuService: MenuService) {
+  constructor(private menuService: MenuService,
+              private spinner: NgxSpinnerService) {
   }
 
   currentDate = this.menuService.getWeekInfo();
 
   ngOnInit(): void {
-    this.menuService.getMenuForCurrentWeek().subscribe(
+    this.spinner.show().then();
+    this.menuService.getMenuForCurrentWeek().subscribe(thisWeekMenu => {
       // @ts-ignore
-        thisWeekMenu => this.menu = thisWeekMenu
+      this.menu = thisWeekMenu;
+      this.spinner.hide().then();
+      }
     );
   }
 }

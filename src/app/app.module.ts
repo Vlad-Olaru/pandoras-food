@@ -1,5 +1,5 @@
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +17,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ToastrModule } from "ngx-toastr";
+import { NgxSpinnerModule } from "ngx-spinner";
 
 registerLocaleData(localeRo, 'ro');
 
@@ -35,6 +36,7 @@ registerLocaleData(localeRo, 'ro');
     ReactiveFormsModule,
     FormsModule,
     ToastrModule.forRoot(),
+    NgxSpinnerModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     // provideAnalytics(() => getAnalytics()),
     provideAuth(() => getAuth()),
@@ -45,6 +47,7 @@ registerLocaleData(localeRo, 'ro');
     ScreenTrackingService,
     UserTrackingService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}

@@ -4,16 +4,20 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundColor: {
+        'beige': '#ffeece',
+      },
+    },
   },
   daisyui: {
     themes: [
       {
         pandora: {
-          "primary": "#fca609",
-          "secondary": "#c90422",
-          "accent": "#ca4621",
-          "neutral": "#1a1a1a",
+          "primary": "#A6032F",
+          "secondary": "#F2A30F",
+          "accent": "#B2D95F",
+          "neutral": "#1a1a1a"
         }
       }
     ],

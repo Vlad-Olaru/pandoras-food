@@ -1,19 +1,7 @@
-<div class="flex flex-col bg-gray-300">
-  <div class="hero h-72">
-    <div class="hero-content text-center">
-      <div class="max-w-md">
-        <div class="flex items-center justify-center">
-          <object type="image/svg+xml" data="assets/logo.svg" class="h-72 w-108 mr-2"></object>
-          <div class="flex flex-col">
-            <h1 class="text-8xl font-sans italic text-primary text-center primary">Pandora's</h1>
-            <h1 class="text-8xl font-serif italic text-secondary text-center">Food</h1>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="flex flex-wrap justify-between text-center">
-    <p class="badge badge-primary mb-8 mx-auto text-xl p-12 text-white md:w-1/2 lg:w-1/3">
+<div class="flex flex-col bg-beige">
+  <div class="flex flex-col justify-between items-center text-center md:flex-row md:mx-auto">
+    <object type="image/svg+xml" data="assets/logo.svg" class="h-72 w-108 mb-2 md:mb-0"></object>
+    <p class="badge badge-primary mx-auto mb-8 text-xl p-12 text-white md:w-1/2 lg:w-1/3">
       Meniul zilei: supă + fel principal, pâine  <br>
       25 lei
     </p>
@@ -22,6 +10,11 @@
       {{ currentDate.mondayDate | date:'dd MMMM y':'':'ro' }} - {{ currentDate.fridayDate | date:'dd MMMM y':'':'ro' }}
     </p>
   </div>
+  <ng-container>
+    <ngx-spinner color="#B2D95F" type="pacman">
+      <p class="text-accent mt-6">Incărcăm meniul...</p>
+    </ngx-spinner>
+  </ng-container>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 m-10" *ngIf="!!menu.monday">
     <div class="card shadow-xl text-center">
       <div class="card-body box">
