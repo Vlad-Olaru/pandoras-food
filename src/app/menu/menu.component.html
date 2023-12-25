@@ -20,9 +20,10 @@
       <div class="card-body box">
         <h2 class="card-title mx-auto mb-6">Luni</h2>
         <ng-container *ngIf="menu.monday.closed">
-          <div class="ribbon ribbon-top-right">
+          <div class="ribbon ribbon-top-right text-white">
             <span class="bg-error">închis</span>
           </div>
+          {{ menu.monday.foodMenu }}
         </ng-container>
         <ng-container *ngIf="menu.monday.foodFinished">
           <div class="ribbon ribbon-top-right">
@@ -37,13 +38,13 @@
       <div class="card-body">
         <h2 class="card-title mx-auto mb-6">Marți</h2>
         <ng-container *ngIf="menu.tuesday.closed">
-          <div class="ribbon ribbon-top-right">
+          <div class="ribbon ribbon-top-right text-white">
             <span class="bg-error">închis</span>
           </div>
           {{ menu.tuesday.foodMenu }}
         </ng-container>
         <ng-container *ngIf="menu.tuesday.foodFinished">
-          <div class="ribbon ribbon-top-right">
+          <div class="ribbon ribbon-top-right ">
             <span class="bg-warning">meniurile s-au terminat</span>
           </div>
           {{ menu.tuesday.foodMenu }}
@@ -55,13 +56,13 @@
       <div class="card-body">
         <h2 class="card-title mx-auto mb-6">Miercuri</h2>
         <ng-container *ngIf="menu.wednesday.closed">
-          <div class="ribbon ribbon-top-right">
+          <div class="ribbon ribbon-top-right text-white">
             <span class="bg-error">închis</span>
           </div>
           {{ menu.wednesday.foodMenu }}
         </ng-container>
         <ng-container *ngIf="menu.wednesday.foodFinished">
-          <div class="ribbon ribbon-top-right">
+          <div class="ribbon ribbon-top-right text-white">
             <span class="bg-warning">meniurile s-au terminat</span>
           </div>
           {{ menu.wednesday.foodMenu }}
@@ -73,13 +74,13 @@
       <div class="card-body">
         <h2 class="card-title mx-auto mb-6">Joi</h2>
         <ng-container *ngIf="menu.thursday.closed">
-          <div class="ribbon ribbon-top-right">
+          <div class="ribbon ribbon-top-right text-white">
             <span class="bg-error">închis</span>
           </div>
           {{ menu.thursday.foodMenu }}
         </ng-container>
         <ng-container *ngIf="menu.thursday.foodFinished">
-          <div class="ribbon ribbon-top-right">
+          <div class="ribbon ribbon-top-right text-white">
             <span class="bg-warning">Epuizat astăzi</span>
           </div>
           {{ menu.thursday.foodMenu }}
