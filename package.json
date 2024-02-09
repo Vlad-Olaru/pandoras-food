@@ -21,7 +21,6 @@
     "@angular/router": "^17.0.8",
     "@tailwindcss/typography": "^0.5.10",
     "firebase": "^10.7.0",
-    "magic-snowflakes": "^6.3.0",
     "ngx-spinner": "^16.0.2",
     "ngx-toastr": "^18.0.0",
     "rxjs": "~7.8.1",
